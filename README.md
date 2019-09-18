@@ -43,9 +43,15 @@ $ docker port test_sshd 22
 $ ssh root@x.x.x.x -p xxxx
 ```
 
-### Build Image and enable new ports
+### Build Image and enable new ports with new image
 ```
 $ docker stop your_container_id
 $ docker commit you_container_id your_new_image_name
 $ docker run -td -p 32679:22 -p 10080:80 -p 10443:443 your_new_image_name
+```
+
+### Export image and load the image
+```
+$ docker save  your_new_image_name > your_new_image_name.tar
+$ docker load your_new_image_name.tar
 ```
