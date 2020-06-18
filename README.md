@@ -2,7 +2,11 @@
 ```
 FROM       ubuntu:18.04
 
-RUN apt-get update
+RUN apt-get update && apt-get -y install \
+nano \
+net-tools \
+iputils-ping \
+openssl
 
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
